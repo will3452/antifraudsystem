@@ -18,7 +18,7 @@ class TransactionPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->can('view all transaction');
+        return $user->can('view any transaction');
     }
 
     /**
