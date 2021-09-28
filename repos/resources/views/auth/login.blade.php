@@ -26,21 +26,14 @@
     @endif
 
     <div class="mb-6 {{ $errors->has('email') ? ' has-error' : '' }}">
-        <label class="block font-bold mb-2" for="email">{{ __('Email Address') }}</label>
-        <input class="form-control form-input form-input-bordered w-full" id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
+        <input placeholder="Email" class="form-control form-input form-input-bordered w-full" id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
     </div>
 
     <div class="mb-6 {{ $errors->has('password') ? ' has-error' : '' }}">
-        <label class="block font-bold mb-2" for="password">{{ __('Password') }}</label>
-        <input class="form-control form-input form-input-bordered w-full" id="password" type="password" name="password" required>
+        <input placeholder="Password" class="form-control form-input form-input-bordered w-full" id="password" type="password" name="password" required>
     </div>
 
     <div class="flex mb-6">
-        <label class="flex items-center text-xl font-bold">
-            <input class="" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
-            <span class="text-base ml-2">{{ __('Remember Me') }}</span>
-        </label>
-
 
         @if (\Laravel\Nova\Nova::resetsPasswords())
         <div class="ml-auto">
