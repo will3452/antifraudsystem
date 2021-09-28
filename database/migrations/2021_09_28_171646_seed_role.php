@@ -31,7 +31,7 @@ class SeedRole extends Migration
      */
     public function up()
     {
-        $permissions = ['transaction', 'role', 'user'];
+        $permissions = ['transaction', 'role', 'user', 'fee'];
         foreach ($permissions as $permission) {
             $this->createPermission($permission);
         }
