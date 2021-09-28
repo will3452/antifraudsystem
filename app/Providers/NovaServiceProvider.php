@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Role;
 use App\Models\Transaction;
 use App\Nova\Metrics\Earnings;
 use App\Nova\Metrics\TotalNumberOfPendingTransaction;
@@ -122,7 +123,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function tools()
     {
         return [
-            new \OptimistDigital\NovaSettings\NovaSettings,
+            (new \OptimistDigital\NovaSettings\NovaSettings)->canSee(function(){
+                return auth()->user()->hasRole(Role::ROLE_SUPER_ADMIN);
+            }),
         ];
     }
 

@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Transaction;
+use App\Models\Fee;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class TransactionPolicy
+class FeePolicy
 {
     use HandlesAuthorization;
 
@@ -18,19 +18,19 @@ class TransactionPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->can('view all transaction');
+        return $user->can('view any fee');
     }
 
     /**
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Transaction  $transaction
+     * @param  \App\Models\Fee  $fee
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Transaction $transaction)
+    public function view(User $user, Fee $fee)
     {
-        return $user->can('view transaction details');
+        return $user->can('view fee details');
     }
 
     /**
@@ -41,30 +41,30 @@ class TransactionPolicy
      */
     public function create(User $user)
     {
-        return $user->can('create transaction');
+        return $user->can('create fee');
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Transaction  $transaction
+     * @param  \App\Models\Fee  $fee
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Transaction $transaction)
+    public function update(User $user, Fee $fee)
     {
-        return $user->can('update transaction');
+        return $user->can('update fee');
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Transaction  $transaction
+     * @param  \App\Models\Fee  $fee
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Transaction $transaction)
+    public function delete(User $user, Fee $fee)
     {
-        return $user->can('delete transaction');
+        return $user->can('delete fee');
     }
 }

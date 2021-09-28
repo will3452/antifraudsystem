@@ -3,9 +3,11 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\MorphToMany;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
@@ -32,13 +34,13 @@ class User extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name', 'email','first_name','last_name', 'address'
+        'id', 'name', 'email', 'first_name', 'last_name', 'address'
     ];
 
     /**
      * Get the fields displayed by the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array
      */
     public function fields(Request $request)
@@ -68,13 +70,15 @@ class User extends Resource
                 ->onlyOnForms()
                 ->creationRules('required', 'string', 'min:8')
                 ->updateRules('nullable', 'string', 'min:8'),
+
+            MorphToMany::make('Roles')
         ];
     }
 
     /**
      * Get the cards available for the request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array
      */
     public function cards(Request $request)
@@ -85,7 +89,7 @@ class User extends Resource
     /**
      * Get the filters available for the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array
      */
     public function filters(Request $request)
@@ -96,7 +100,7 @@ class User extends Resource
     /**
      * Get the lenses available for the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array
      */
     public function lenses(Request $request)
@@ -107,7 +111,7 @@ class User extends Resource
     /**
      * Get the actions available for the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array
      */
     public function actions(Request $request)
