@@ -58,7 +58,7 @@ class User extends Resource
                 ->rules(['required']),
 
             Number::make('Mobile Number')
-                ->rules(['required', 'unique:users,mobile_number']),
+                ->rules(['required', 'unique:users,mobile_number,{{resourceId}}']),
 
             Text::make('Email')
                 ->sortable()
