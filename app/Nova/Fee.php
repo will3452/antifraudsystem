@@ -55,7 +55,7 @@ class Fee extends Resource
     {
         return [
             new Panel("Principle", $this->principleFields()),
-            Number::make('Amount')
+            Number::make('Charge', 'amount')
             ->step(0.1)
             ->rules(['required', 'unique:fees,amount'])
         ];
