@@ -20,6 +20,7 @@ use Sixlive\TextCopy\TextCopy;
 
 class Transaction extends Resource
 {
+    public static $group = "Menu";
     /**
      * The model the resource corresponds to.
      *
@@ -168,7 +169,9 @@ class Transaction extends Resource
                 ->success('Transaction is Available and ready to process!')
                 ->canSee(function ($request) {
                     $transaction = \App\Models\Transaction::find($request->resourceId);
-                    if (!$transaction) return;
+                    if (!$transaction) {
+                        return;
+                    }
                     return $transaction->status == 'pending';
                 }),
             (new Info())
@@ -176,7 +179,9 @@ class Transaction extends Resource
                 ->warning('This Transaction was already Completed')
                 ->canSee(function ($request) {
                     $transaction = \App\Models\Transaction::find($request->resourceId);
-                    if (!$transaction) return;
+                    if (!$transaction) {
+                        return;
+                    }
                     return $transaction->status == 'completed';
                 }),
             (new Info())
@@ -184,7 +189,9 @@ class Transaction extends Resource
                 ->danger('This Transaction was cancelled')
                 ->canSee(function ($request) {
                     $transaction = \App\Models\Transaction::find($request->resourceId);
-                    if (!$transaction) return;
+                    if (!$transaction) {
+                        return;
+                    }
                     return $transaction->status == 'cancelled';
                 }),
         ];

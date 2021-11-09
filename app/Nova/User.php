@@ -14,6 +14,7 @@ use Laravel\Nova\Fields\Text;
 
 class User extends Resource
 {
+    public static $group = "Menu";
     /**
      * The model the resource corresponds to.
      *

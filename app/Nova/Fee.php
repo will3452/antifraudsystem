@@ -10,6 +10,7 @@ use Laravel\Nova\Panel;
 
 class Fee extends Resource
 {
+    public static $group = "Menu";
     /**
      * The model the resource corresponds to.
      *
