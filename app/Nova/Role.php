@@ -10,7 +10,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Role extends Resource
 {
-    public static $group = "System";
+    public static $group = "System & Settings";
     /**
      * The model the resource corresponds to.
      *

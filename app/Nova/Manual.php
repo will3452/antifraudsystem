@@ -11,7 +11,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Manual extends Resource
 {
-    public static $group = "System";
+    public static $group = "System & Settings";
     public static function label()
     {
         return "User's Manual";
