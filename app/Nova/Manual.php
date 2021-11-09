@@ -11,6 +11,10 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Manual extends Resource
 {
+    public static function label()
+    {
+        return "user's Manual";
+    }
     /**
      * The model the resource corresponds to.
      *
