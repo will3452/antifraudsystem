@@ -14,8 +14,8 @@ class AddEmailToTransaction extends Migration
     public function up()
     {
         Schema::table('transactions', function (Blueprint $table) {
-            $table->string('sender_email');
-            $table->string('receiver_email');
+            $table->string('sender_email')->nullable();
+            $table->string('receiver_email')->nullable();
         });
     }
 }

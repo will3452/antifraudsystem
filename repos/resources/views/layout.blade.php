@@ -48,8 +48,8 @@
             </div>
 
             <!-- Content -->
-            <div class="content" style="background: #ffffa1">
-                <div class="flex items-center relative shadow h-header z-20 px-view" style="background: #ffffa1; color: white">
+            <div class="content" style="background: #ddd">
+                <div class="flex items-center relative shadow h-header z-20 px-view" style="background: #fff; color: #222">
                     @if (count(\Laravel\Nova\Nova::globallySearchableResources(request())) > 0)
                         <global-search dusk="global-search-component"></global-search>
                     @endif

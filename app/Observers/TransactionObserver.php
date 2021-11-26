@@ -18,29 +18,21 @@ class TransactionObserver
         $transaction['reference_number'] = $referenceNumber;
 
         $amount = $transaction['amount'];
-        $fee = Fee::where([
-            ['principle_max', '>=', $amount],
-            ['principle_min', '<=', $amount]
-        ])->first();
+        $fee = (((nova_get_setting('fee') ?? 2) / 100) * $amount);
 
-        $feeAmount = $fee ? $fee->amount : 0;
-        $transaction['fee'] = $feeAmount;
+        $transaction['fee'] = $fee;
     }
 
     public function updating(Transaction $transaction)
     {
         $amount = $transaction['amount'];
-        $fee = Fee::where([
-            ['principle_max', '>=', $amount],
-            ['principle_min', '<=', $amount]
-        ])->first();
+        $fee = (((nova_get_setting('fee') ?? 2) / 100) * $amount);
 
-        $feeAmount = $fee ? $fee->amount : 0;
-
-        $transaction['fee'] = $feeAmount;
+        $transaction['fee'] = $fee;
     }
 
-    public function created(Transaction $transaction){
+    public function created(Transaction $transaction)
+    {
         Mail::to($transaction->sender_email)->send(new TransactionCreated($transaction));
         Mail::to($transaction->receiver_email)->send(new TransactionCreated($transaction));
     }
