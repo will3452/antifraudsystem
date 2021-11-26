@@ -33,7 +33,7 @@ class TransactionObserver
 
     public function created(Transaction $transaction)
     {
-        Mail::to($transaction->sender_email)->send(new TransactionCreated($transaction));
-        Mail::to($transaction->receiver_email)->send(new TransactionCreated($transaction));
+        // Mail::to($transaction->sender_email)->send(new TransactionCreated($transaction));
+        // Mail::to($transaction->receiver_email)->send(new TransactionCreated($transaction));
     }
 }
