@@ -123,7 +123,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 ->series(array([
                     'barPercentage' => 0.5,
                     'label' => 'Trasanctions',
-                    'backgroundColor' => '#222',
+                    'backgroundColor' => 'red',
                     'data' => $data
                 ]))
                 ->options([
@@ -141,7 +141,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 ->series(array([
                     'barPercentage' => 0.5,
                     'label' => 'Trasanctions',
-                    'backgroundColor' => '#222',
+                    'backgroundColor' => 'blue',
                     'data' => $dataM
                 ]))
                 ->options([
@@ -159,7 +159,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 ->series(array([
                     'barPercentage' => 0.5,
                     'label' => 'Trasanctions',
-                    'backgroundColor' => '#222',
+                    'backgroundColor' => 'green',
                     'data' => $dataY
                 ]))
                 ->options([
@@ -172,7 +172,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     ->title('Transactions')
                     ->series(array([
                         'data' => [Transaction::whereStatus('pending')->count(), Transaction::where('status', '!=', 'pending')->count()],
-                        'backgroundColor' => ["#555","#222",],
+                        'backgroundColor' => ["#EEEE77","#FF7777",],
                     ]))
                     ->options([
                         'xaxis' => [
