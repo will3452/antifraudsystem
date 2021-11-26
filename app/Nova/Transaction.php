@@ -231,8 +231,7 @@ class Transaction extends Resource
     public function actions(Request $request)
     {
         return [
-            MarkAsComplete::make()
-                ->onlyOnDetail(),
+            MarkAsComplete::make(),
             new DownloadExcel(),
         ];
     }
