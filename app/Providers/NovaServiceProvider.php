@@ -114,7 +114,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             TotalNumberOfPendingTransaction::make()->width('1/2'),
             TotalNumberOfTransaction::make()->width('1/2'),
             Earnings::make()->width('1/2'),
-            (new LineChart())
+            (new BarChart())
                 ->title('Daily Transaction')
                 ->animations([
                     'enabled' => true,
