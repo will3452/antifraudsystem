@@ -111,9 +111,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         }
 
         return [
-            TotalNumberOfPendingTransaction::make(),
-            TotalNumberOfTransaction::make(),
-            Earnings::make(),
+            TotalNumberOfPendingTransaction::make()->width('1/2'),
+            TotalNumberOfTransaction::make()->width('1/2'),
+            Earnings::make()->width('1/2'),
             (new LineChart())
                 ->title('Daily Transaction')
                 ->animations([
@@ -131,7 +131,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                         'categories' => $labels
                     ],
                 ])
-                ->width('1/3'),
+                ->width('full'),
             (new LineChart())
                 ->title('Monthly Transaction')
                 ->animations([
@@ -149,7 +149,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                         'categories' => $labelsM
                     ],
                 ])
-                ->width('1/3'),
+                ->width('full'),
                 (new LineChart())
                 ->title('Yearly Transaction')
                 ->animations([
@@ -167,7 +167,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                         'categories' => $labelsY
                     ],
                 ])
-                ->width('1/3'),
+                ->width('full'),
                 (new PieChart())
                     ->title('Transactions')
                     ->series(array([
@@ -178,7 +178,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                         'xaxis' => [
                             'categories' => ['Pending', 'Completed'],
                         ],
-                    ])->width('1/3'),
+                    ])->width('1/2'),
 
         ];
     }

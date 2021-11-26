@@ -38,7 +38,7 @@ class TransactionFactory extends Factory
             'purpose' => $this->faker->paragraph(),
             'relationship' => $this->faker->sentence(),
             'amount' => $this->faker->numberBetween(500, 2000),
-            'created_at' => $this->faker->dateTimeBetween('-6 months', 'now')
+            'created_at' => $this->faker->dateTimeThisDecade(),
         ];
     }
 }
