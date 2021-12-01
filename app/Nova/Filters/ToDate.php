@@ -20,6 +20,6 @@ class ToDate extends DateFilter
     {
         $value = Carbon::parse($value);
 
-        return $query->where('created_at', '<=', $value);
+        return $query->whereDate('created_at', '<=', $value);
     }
 }
