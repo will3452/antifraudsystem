@@ -3,6 +3,8 @@
 namespace App\Nova;
 
 use App\Nova\Actions\MarkAsComplete;
+use App\Nova\Filters\FromDate;
+use App\Nova\Filters\ToDate;
 use App\Nova\Lenses\CompletedTransaction;
 use App\Nova\Lenses\PendingTransaction;
 use Illuminate\Http\Request;
@@ -205,7 +207,10 @@ class Transaction extends Resource
      */
     public function filters(Request $request)
     {
-        return [];
+        return [
+            FromDate::make(),
+            ToDate::make(),
+        ];
     }
 
     /**
